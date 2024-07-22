@@ -20,9 +20,9 @@ echo '' > /data/polylines/extract.0sv;
 # iterate over all PBF files in the osm directory
 for PBF_FILE in "${PBF_FILES[@]}"; do
 
-  # give a warning if the filesize is over 1GB
+  # give a warning if the filesize is over 2GB
   # the missinglink/pbf library is memory-bound and cannot safely handle very large extracts
-  find "${PBF_FILE}" -maxdepth 1 -size +1G | while read file; do
+  find "${PBF_FILE}" -maxdepth 1 -size +2G | while read file; do
     2>&1 echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!';
     2>&1 echo "${PBF_FILE} is very large.";
     2>&1 echo 'We strongly recommend using Valhalla to produce extracts for large PBF extracts.';
